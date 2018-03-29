@@ -1,0 +1,24 @@
+<button style="margin-bottom: 20px" class="btn btn-primary" id="emptyCard">Empty Cart</button>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+	<for(singleItem in input.pageData)>
+	    <tr>
+	        <td>${singleItem.title}</td>
+	        <td>${singleItem.quantity}</td>
+	        <td>${singleItem.price}</td>
+	    </tr>
+	</for>
+  </tbody>
+</table>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/manageCart.js"></script>

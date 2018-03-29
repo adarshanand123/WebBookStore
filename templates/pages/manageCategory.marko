@@ -1,0 +1,30 @@
+<h2>Manage Categories</h2>
+
+<a href="/manageCategories/add">Add Category</a>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Category Name</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+	<for(categoryData in input.pageData)>
+	    <tr>
+	        <td>${categoryData.id}</td>
+	        <td>${categoryData.category}</td>
+			$ var href = `/manageCategories/${categoryData.id}`
+			$ var categoryId = `${categoryData.id}`
+	        <td><a class="btn btn-primary" href=href>Edit </a></td>
+	        <td class="deleteCategory"  ><button category-id=categoryId class="btn btn-danger">Delete</button></td>
+	    </tr>
+	</for>
+  </tbody>
+</table>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/manageCategories.js"></script>

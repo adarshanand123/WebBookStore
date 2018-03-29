@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+	<title>Book Store</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/css/app.css">
+</head>
+<body>
+	<div class="mainContainer">
+
+		<if(input.homeFlag)>
+			<h1>TekBook</h1>
+			<header-tag-home/>
+		</if>
+		<else>
+			<h1>TekBook Manager</h1>
+			<header-tag-manage/>
+		</else>
+		$ var filePath = require(input.filename);
+		<div class="bodyContainer">
+		<include(filePath, {pageData: input.pageData})/>
+		</div>
+		<if(input.homeFlag)>
+			<footer class="footer"><a href="/manage">Manage</a></footer>
+		</if>
+		
+	</div>
+</body>
+</html>

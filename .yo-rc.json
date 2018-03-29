@@ -1,0 +1,14 @@
+{
+  "generator-kraken": {
+    "taskModule": "grunt",
+    "lintModule": "eslint",
+    "description": "application simulating a book store",
+    "author": "Adarsh Anand",
+    "templateModule": "makara",
+    "i18n": false,
+    "componentPackager": false,
+    "cssModule": "sass",
+    "jsModule": "browserify",
+    "useJson": null
+  }
+}

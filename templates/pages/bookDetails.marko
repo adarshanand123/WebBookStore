@@ -1,0 +1,19 @@
+<div>
+	$ var pageData = input.pageData;
+	$ var src = `/uploads/${pageData.coverurl}`
+	<div style="width:25%;display:inline-block"><img style="width:100%" src=src></div>
+	<div class="bookDetails">
+		<h2>${pageData.title}</h2>
+		<ul>
+			<li>Category: ${pageData.category}</li>
+			<li>Author: ${pageData.author}</li>
+			<li>Publisher: ${pageData.publisher}</li>
+		</ul>
+		<h5>$ ${pageData.price}</h5>
+		<p>${pageData.description}</p>
+		<a class="btn btn-primary" data-item = pageData id="addToCart">Add To Cart</a>
+	</div>
+	$ var cartid = `${pageData.id}`
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/manageCart.js"></script>

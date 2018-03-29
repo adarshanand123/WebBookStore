@@ -1,0 +1,15 @@
+<if(input.pageData)>
+	<div class="row">
+	<for(bookData in input.pageData)>
+		<div class=" col-4 bookContainer">
+		$ var src = `/uploads/${bookData.coverurl}`
+			<img style="width:60%" src=src>
+			<h5>${bookData.title}</h5>
+			<p>${bookData.description}</p>
+			<p>Buy it for $ ${bookData.price}</p>
+			$ var href = `/bookDetails/${bookData.id}`
+			<a class="btn btn-primary" href=href>View Details</a>
+		</div>
+	</for>
+	</div>
+</if>

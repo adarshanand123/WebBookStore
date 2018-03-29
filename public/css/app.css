@@ -1,0 +1,22 @@
+.bookContainer{
+	text-align: center;
+    padding: 25px;
+}
+
+.mainContainer{
+	width: 87%;
+	margin: auto;
+}
+
+.footer{
+	text-align: center;
+}
+
+.bodyContainer{
+	padding-top: 20px;
+}
+
+.bookDetails{
+    display: inline-block;
+    margin-left: 20px;
+}

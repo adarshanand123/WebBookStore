@@ -1,0 +1,53 @@
+$ var pageData = input.pageData;
+$ var action;
+$ {
+	if(pageData && pageData.category) {
+		action = `/manageBooks/${pageData.id}`
+	} else {
+		action =  "/manageBooks/add"
+	}
+}
+<form action=action method="post" enctype="multipart/form-data">
+	<div class="form-group">
+		<label for="title">Title</label>
+		<input class="form-control" type="text" name="title" id="title" value=(pageData && pageData.title)>
+	</div>
+
+	<div class="form-group">
+		<label for="author">Author</label>
+		<input type="text" class="form-control" name="author" id="author" value=(pageData && pageData.author)>
+	</div>
+
+	<div class="form-group">
+		<label for="publisher">Publisher</label>
+		<input type="text" class="form-control" name="publisher" id="publisher" value=(pageData && pageData.publisher)>
+	</div>
+
+	<div class="form-group">
+		<label for="price">Price</label>
+		<input type="number" class="form-control" name="price" id="price" value=(pageData && pageData.price)>
+	</div>
+
+	<div class="form-group">
+		<label for="category">Category</label>
+		<select class="form-control" name="category" id="category">
+			<for(value in pageData.categoryArray) >
+				<option selected=(value == pageData.category) value=value>${value}</option>
+			</for>
+		</select>
+	</div>
+
+	<div class="form-group">
+		<label for="description">Description</label>
+		<input class="form-control" type="text" name="description" id="description" value=(pageData && pageData.description)>
+	</div>
+
+	<div class="form-group">
+		<label for="coverurl">CoverUrl</label>
+		<input class="form-control" type="file" name="coverurl" id="coverurl" value=(pageData && pageData.coverurl)>
+	</div>
+
+	<input id="submitform" class="btn btn-primary" type="submit" value="Add Book" > 
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/manageBooks.js"></script>

@@ -1,0 +1,31 @@
+<h2>Manage Books</h2>
+
+<a href="/manageBooks/add">Add Book</a>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Book</th>
+      <th scope="col">Category</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+	<for(bookData in input.pageData)>
+	    <tr>
+	        <td>${bookData.id}</td>
+	        <td>${bookData.title}</td>
+	        <td>${bookData.category}</td>
+	        $ var href = `/manageBooks/${bookData.id}`
+		    $ var bookId = `${bookData.id}`
+	        <td><a class="btn btn-primary" href=href>Edit </a></td>
+	        <td class="deleteBook" ><button book-id=bookId class="btn btn-danger">Delete</button></td>
+	    </tr>
+	</for>
+  </tbody>
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/manageBooks.js"></script>
