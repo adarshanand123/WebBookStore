@@ -12,7 +12,7 @@ module.exports = router;
 	router.get('/:id',async function(req,res){
 		var bookData = await getBookDetails(req.params.id);
 		var pageData = getBookData(bookData);
-		template.render({homeFlag: true, filename: './pages/bookDetails',pageData: pageData},res);
+		res.marko(template,{homeFlag: true, filename: './pages/bookDetails',pageData: pageData});
 	});
 //	
 //kraken-close }

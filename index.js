@@ -31,7 +31,10 @@ var manageCategories = require('./controllers/manageCategories.js');
 //     }
 // };
 require('marko/node-require');
+var markoExpress = require('marko/express');
+
 app = module.exports = express();
+app.use(markoExpress());
 // app.use(kraken(options));
 app.use(session({
 	secret: 'secret',

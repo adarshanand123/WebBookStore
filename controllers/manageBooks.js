@@ -25,7 +25,7 @@ module.exports = router;
 	router.get('/',async function(req,res){
 		var getAllBooksData = await getAllBooks();
 		var pageData =  allBooksData(getAllBooksData);
-		template.render({homeFlag: false, filename: './pages/manageBook', pageData: pageData},res);
+		res.marko(template,{homeFlag: false, filename: './pages/manageBook', pageData: pageData});
 	});
 //	
 
@@ -35,7 +35,7 @@ module.exports = router;
 		var categoryArray =  allCategoriesData(getAllCategoriesData);
 		var pageData = {};
 		pageData.categoryArray = categoryArray;
-		template.render({homeFlag: false, filename: './pages/addBook',pageData},res);
+		res.marko(template,{homeFlag: false, filename: './pages/addBook',pageData});
 	});
 
 	router.post('/add',upload,async function(req,res){
@@ -60,7 +60,7 @@ module.exports = router;
 		var bookData = await getBookDetails(req.params.id);
 		var pageData = getBookData(bookData);
 		pageData.categoryArray = categoryArray;
-		template.render({homeFlag: true, filename: './pages/addBook',pageData: pageData},res);
+		res.marko(template,{homeFlag: true, filename: './pages/addBook',pageData: pageData});
 	});
 
 	router.post('/:id',upload,async function(req,res){

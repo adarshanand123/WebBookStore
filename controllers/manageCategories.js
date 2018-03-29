@@ -11,13 +11,13 @@ module.exports = router;
 	router.get('/',async function(req,res){
 		var getAllCategoriesData = await getAllCategories();
 		var pageData =  allCategoriesData(getAllCategoriesData);
-		template.render({homeFlag: false, filename: './pages/manageCategory', pageData: pageData},res);	
+		res.marko(template,{homeFlag: false, filename: './pages/manageCategory', pageData: pageData});	
 	});
 //	
 
 //adding new categories
 	router.get('/add',function(req,res){
-		template.render({homeFlag: false, filename: './pages/addCategory'},res);
+		res.marko(template,{homeFlag: false, filename: './pages/addCategory'});
 	});
 
 	router.post('/add',function(req,res){
@@ -36,7 +36,7 @@ module.exports = router;
 	router.get('/:id',async function(req,res){
 		var categoryData = await getCategoryDetails(req.params.id);
 		var pageData = getCategoryData(categoryData);
-		template.render({homeFlag: false, filename: './pages/addCategory',pageData: pageData},res);
+		res.marko(template,{homeFlag: false, filename: './pages/addCategory',pageData: pageData});
 	});
 
 	router.post('/:id',async function(req,res){

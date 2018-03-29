@@ -7,7 +7,7 @@ module.exports = router;
 // kraken-open module.exports = function(router){
 
 	router.get('/',function(req,res){
-		template.render({homeFlag: false, filename: './pages/manage.marko'},res);
+		res.marko(template,{homeFlag: false, filename: './pages/manage.marko'});
 	});	
 
 // kraken-close}

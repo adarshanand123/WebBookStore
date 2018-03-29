@@ -10,7 +10,7 @@ module.exports = router;
 		console.log(req.session);
 		var pageData = getCartData(req.session);
 		console.log(pageData);
-		template.render({homeFlag: true, filename: './pages/cart.marko', pageData: pageData},res);
+		res.marko(template,{homeFlag: true, filename: './pages/cart.marko', pageData: pageData});
 	});
 
 	router.post('/',function(req,res){
@@ -48,6 +48,7 @@ module.exports = router;
 
 function getCartData(sessionData){
 	var pageData = [];
+	var total = 0;
 	if(!sessionData.ids) {return pageData;}
 	for(var i = 0;i<sessionData.ids.length;i++) {
 		var singleItem = {};
@@ -57,7 +58,9 @@ function getCartData(sessionData){
 		singleItem.title = item.title;
 		singleItem.price = item.price * quantity;
 		singleItem.quantity = quantity;
+		total+=singleItem.price;
 		pageData.push(singleItem);
 	}
+	pageData.total = total;
 	return pageData;
 }

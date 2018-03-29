@@ -11,13 +11,13 @@ module.exports = router;
 	router.get('/',async function(req,res){
 		var getAllBooksData = await getAllBooks();
 		var pageData =  allBooksData(getAllBooksData);
-		template.render({homeFlag: true, filename: './pages/home', pageData: pageData},res);
+		res.marko(template,{homeFlag: true, filename: './pages/home', pageData: pageData});
 	});
 //	
 
 //about section
 	router.get('/about',function(req,res){
-		template.render({homeFlag: true, filename: './pages/about'},res);
+		res.marko(template,{homeFlag: true, filename: './pages/about'});
 	});
 // kraken-close}
 
